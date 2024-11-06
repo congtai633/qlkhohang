@@ -67,4 +67,9 @@ public class KhoHang {
         this.trangThai = trangThai;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%-20s%-20s%-20s%-20d%-20s\n",
+                getIdKhoHang(), getTenKho(), getDiaChi(), getSucChua(), getTrangThai());
+    }
 }

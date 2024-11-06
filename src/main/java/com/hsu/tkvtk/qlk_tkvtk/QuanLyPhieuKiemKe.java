@@ -15,6 +15,14 @@ public class QuanLyPhieuKiemKe {
 
     private ArrayList<PhieuKiemKe> danhSachPhieuKemKe = new ArrayList<PhieuKiemKe>();
 
+    public ArrayList<PhieuKiemKe> getDanhSachPhieuKemKe() {
+        return danhSachPhieuKemKe;
+    }
+
+    public void setDanhSachPhieuKemKe(ArrayList<PhieuKiemKe> danhSachPhieuKemKe) {
+        this.danhSachPhieuKemKe = danhSachPhieuKemKe;
+    }
+
     public void themPhieuKiemKe() {
         Scanner sc = new Scanner(System.in);
         System.out.println("TEN NHAN VIEN KIEM KE");
@@ -37,12 +45,52 @@ public class QuanLyPhieuKiemKe {
         System.out.println("THEM PHIEU KIEM KE THANH CONG");
     }
 
-    public void capNhatPhieuKIemKe() {
-
+      public void capNhatPhieuKIemKe(){
+         boolean c=false;
+        PhieuKiemKe kk= new PhieuKiemKe();
+        Scanner sc= new Scanner(System.in);
+        System.out.println("ID PHIEU CAN TIM");
+        int id= sc.nextInt();
+        for(PhieuKiemKe phieuKiemKe : danhSachPhieuKemKe){
+            if(phieuKiemKe.getIdPhieuKiemKe()==id){
+                kk = phieuKiemKe;
+                c=true;
+                break;
+            }
+        }
+        if(c==true){
+            System.out.println("nhap ten can sua: ");
+            String tenNv=sc.nextLine();
+            kk.setNhanVienKiemKe(tenNv);
+        }else
+        {
+            System.out.println("khong tim thay!");
+        }
+       xemPhieuKiemKe();
     }
-
-    public void xoaPhieuKiemKe() {
-
+    public void xoaPhieuKiemKe(){
+         boolean c=false;
+        PhieuKiemKe xkk= new PhieuKiemKe();
+        Scanner sc= new Scanner(System.in);
+        System.out.println("ID PHIEU CAN TIM");
+        int id= sc.nextInt();
+        for(PhieuKiemKe phieuKiemKe : danhSachPhieuKemKe){
+            if(phieuKiemKe.getIdPhieuKiemKe()==id){
+                xkk = phieuKiemKe;
+                c=true;
+                break;
+            }
+        }
+        if(c==true){
+            danhSachPhieuKemKe.remove(xkk);
+        }else
+        {
+            System.out.println("khong tim thay!");
+        }
+        
+        
+        xemPhieuKiemKe();
+        
     }
 
     public void xemPhieuKiemKe() {

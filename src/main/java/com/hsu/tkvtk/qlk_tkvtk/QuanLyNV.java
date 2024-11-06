@@ -15,6 +15,14 @@ public class QuanLyNV {
 
     private ArrayList<ThongTinNhanVien> danhSachNV = new ArrayList<ThongTinNhanVien>();
 
+    public ArrayList<ThongTinNhanVien> getDanhSachNV() {
+        return danhSachNV;
+    }
+
+    public void setDanhSachNV(ArrayList<ThongTinNhanVien> danhSachNV) {
+        this.danhSachNV = danhSachNV;
+    }
+
     public void themNV() {
 
         Scanner sc = new Scanner(System.in);
@@ -51,12 +59,54 @@ public class QuanLyNV {
         System.out.println("THEM NHAN VIEN THANH CONG");
     }
 
-    public void capNhatNV() {
-
+    public void capNhatNV(){
+        boolean c=false;
+        ThongTinNhanVien cn= new ThongTinNhanVien();
+        Scanner sc= new Scanner(System.in);
+        System.out.println("MA SO NHAN VIEN CAN TIM");
+        int mSnv= sc.nextInt();
+        for(ThongTinNhanVien thongTinNhanVien : danhSachNV){
+            if(thongTinNhanVien.getMSnv()==mSnv){
+                cn = thongTinNhanVien;
+                c=true;
+                break;
+            }
+        }
+        if(c==true){
+            System.out.println("nhap ten can sua: ");
+            String tenNv=sc.nextLine();
+            cn.setTenNH(tenNv);
+        }else
+        {
+            System.out.println("khong tim thay!");
+        }
+        xemDanhSachNV();
+        
+        
     }
-
-    public void xoaNV() {
-
+    public void xoaNV(){
+         boolean c=false;
+        ThongTinNhanVien xnv= new ThongTinNhanVien();
+        Scanner sc= new Scanner(System.in);
+        System.out.println("MA SO NHAN VIEN CAN TIM");
+        int mSnv= sc.nextInt();
+        for(ThongTinNhanVien thongTinNhanVien : danhSachNV){
+            if(thongTinNhanVien.getMSnv()==mSnv){
+                xnv = thongTinNhanVien;
+                c=true;
+                break;
+            }
+        }
+        if(c==true){
+            danhSachNV.remove(xnv);
+        }else
+        {
+            System.out.println("khong tim thay!");
+        }
+        
+        
+        xemDanhSachNV();
+        
     }
 
     public void xemDanhSachNV() {

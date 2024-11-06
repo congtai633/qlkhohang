@@ -15,6 +15,14 @@ public class QuanLyKhoHang {
 
     private ArrayList<KhoHang> dsKhoHang = new ArrayList<KhoHang>();
 
+    public ArrayList<KhoHang> getDsKhoHang() {
+        return dsKhoHang;
+    }
+
+    public void setDsKhoHang(ArrayList<KhoHang> dsKhoHang) {
+        this.dsKhoHang = dsKhoHang;
+    }
+
     public void themKhoHang() {
         KhoHang kh = new KhoHang();
         Scanner sc = new Scanner(System.in);
@@ -37,6 +45,53 @@ public class QuanLyKhoHang {
         dsKhoHang.add(kh);
         System.out.println("Them kho hang thanh cong");
 
+    }
+
+    public void capnhatKhoHang() {
+        boolean c = false;
+        KhoHang kh = new KhoHang();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap id kho hang can tim:");
+        String idKH = sc.nextLine();
+        for (KhoHang khohang : dsKhoHang) {
+            if (khohang.getIdKhoHang().equals(idKH)) {
+                kh = khohang;
+                c = true;
+                break;
+            }
+        }
+
+        if (c == true) {
+            System.out.println("Nhap ten Kho can sua ");
+            String tenK = sc.nextLine();
+            kh.setTenKho(tenK);
+        } else {
+            System.out.println("khong tim thay:");
+        }
+        xemdsKhoHang();
+
+    }
+
+    public void xoaKhoHang() {
+        boolean c = false;
+        KhoHang kh = new KhoHang();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap trang thai can xoa:");
+        String tt = sc.nextLine();
+        for (KhoHang khohang : dsKhoHang) {
+            if (khohang.getTrangThai().equals(tt)) {
+                kh = khohang;
+                c = true;
+                break;
+
+            }
+        }
+        if (c == true) {
+            dsKhoHang.remove(kh);
+        } else {
+            System.out.println("khong tim thay:");
+        }
+        xemdsKhoHang();
     }
 
     public void xemdsKhoHang() {

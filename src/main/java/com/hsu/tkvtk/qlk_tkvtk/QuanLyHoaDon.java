@@ -15,6 +15,14 @@ public class QuanLyHoaDon {
 
     private ArrayList<HoaDon> dsHoaDon = new ArrayList<HoaDon>();
 
+    public ArrayList<HoaDon> getDsHoaDon() {
+        return dsHoaDon;
+    }
+
+    public void setDsHoaDon(ArrayList<HoaDon> dsHoaDon) {
+        this.dsHoaDon = dsHoaDon;
+    }
+
     public void themHoaDon() {
         HoaDon hd = new HoaDon();
         Scanner sc = new Scanner(System.in);
@@ -63,6 +71,53 @@ public class QuanLyHoaDon {
         dsHoaDon.add(hd);
         System.out.println("them hoa don thanh cong");
 
+    }
+
+    public void capnhatHoaDon() {
+        boolean c = false;
+        HoaDon hd = new HoaDon();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap ma so thue can tim:");
+        String mst = sc.nextLine();
+        for (HoaDon hoadon : dsHoaDon) {
+            if (hoadon.getMaSoThue().equals(mst)) {
+                hd = hoadon;
+                c = true;
+                break;
+            }
+        }
+
+        if (c == true) {
+            System.out.println("Nhap ten doanh nghiep can sua ");
+            String tenDN = sc.nextLine();
+            hd.setTenDoanhNghiep(tenDN);
+        } else {
+            System.out.println("khong tim thay:");
+        }
+        xemdsHoaDon();
+
+    }
+
+    public void xoaHoaDon() {
+        boolean c = false;
+        HoaDon hd = new HoaDon();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap don Vi Tinh can xoa:");
+        int dvt = sc.nextInt();
+        for (HoaDon hoadon : dsHoaDon) {
+            if (hoadon.getDonViTinh() == dvt) {
+                hd = hoadon;
+                c = true;
+                break;
+
+            }
+        }
+        if (c == true) {
+            dsHoaDon.remove(hd);
+        } else {
+            System.out.println("khong tim thay:");
+        }
+        xemdsHoaDon();
     }
 
     public void xemdsHoaDon() {
