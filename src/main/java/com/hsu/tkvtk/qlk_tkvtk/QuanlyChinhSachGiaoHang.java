@@ -5,6 +5,8 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -103,4 +105,21 @@ public class QuanlyChinhSachGiaoHang {
             System.out.format("%-20d %-30s %-30d %-20s %-20f\n",CSGH.getIdChinhSach(),CSGH.getTenChinhSach(),CSGH.getThoiGianGiaoHangToiDa(),CSGH.getDonViThoiGian(),CSGH.getPhiGiaoHang());
         }
     }
+    void sortCSGH() {
+        Comparator<ChinhSachGiaoHang> compObj = new Comparator<ChinhSachGiaoHang>() {
+            @Override
+            public int compare(ChinhSachGiaoHang h1, ChinhSachGiaoHang h2) {
+                if (h1.getIdChinhSach() > h2.getIdChinhSach()) {
+                    return 1;
+                } else if (h1.getIdChinhSach()== h2.getIdChinhSach()) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        };
+        Collections.sort(dsChinhSachGiaoHang, compObj);
+        //Collections.sort(dsRegion,Comparator.comparing(Region:: getRegionID)); //cach 2
+    }
 }
+
