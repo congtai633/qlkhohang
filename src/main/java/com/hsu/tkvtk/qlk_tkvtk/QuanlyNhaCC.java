@@ -5,6 +5,8 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -110,4 +112,21 @@ public class QuanlyNhaCC {
             System.out.format("%-20s %-20s %-40s %-20s %-30s %-20s %-20s\n",ncc.getIdNhaCC(),ncc.getTenNhaCC(),ncc.getDiaChi(),ncc.getSoDienThoai(),ncc.getEmail(),ncc.getNguoiLienHe(),ncc.getLoaiHangHoa());
         }
     }
+    void sortNCC() {
+        Comparator<NhaCC> compObj = new Comparator<NhaCC>() {
+            @Override
+            public int compare(NhaCC c1, NhaCC c2) {
+                if (c1.getIdNhaCC().compareTo(c2.getIdNhaCC())> 0) {
+                    return 1;
+                } else if (c1.getIdNhaCC().equals(c2.getIdNhaCC())) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        };
+        Collections.sort(dsNhaCC, compObj);
+        //Collections.sort(dsRegion,Comparator.comparing(Region:: getRegionID)); //cach 2
+    }
 }
+
