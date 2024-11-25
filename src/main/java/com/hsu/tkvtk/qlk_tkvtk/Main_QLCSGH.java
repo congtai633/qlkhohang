@@ -21,7 +21,8 @@ public class Main_QLCSGH {
             System.out.println("2.Cap nhat chinh sach giao hang");
             System.out.println("3.Xoa chinh sach giao hang");
             System.out.println("4.Xem danh sach chinh sach giao hang");
-            System.out.println("5.Exit");
+            System.out.println("5.Sap xep danh sach chinh sach giao hang");
+            System.out.println("6.Thoat");
             System.out.println("Vui long chon so: ");
             chucNang = sc.nextInt();
             switch(chucNang)
@@ -30,9 +31,10 @@ public class Main_QLCSGH {
                 case 2 -> qlcsgh.capnhatChinhSachGiaoHang();
                 case 3 -> qlcsgh.xoaChinhSachGiaoHang();
                 case 4 -> qlcsgh.xemdanhsachChinhSachGiaoHang();
-                case 5 -> System.out.println("Thoat chuong trinh");
+                case 5 -> qlcsgh.sortCSGH();
+                case 6 -> System.out.println("Thoat chuong trinh");
                 default -> System.out.println("Sai cu phap, vui long nhap lai");
             }
-        }while(chucNang!=5);
+        }while(chucNang!=6);
     }
 }
