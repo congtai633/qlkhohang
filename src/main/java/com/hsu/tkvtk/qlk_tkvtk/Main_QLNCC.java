@@ -21,7 +21,8 @@ public class Main_QLNCC {
             System.out.println("2.Cap nhat thong tin nha cung cap");
             System.out.println("3.Xoa nha cung cap");
             System.out.println("4.Xem danh sach nha cung cap");
-            System.out.println("5.Exit");
+            System.out.println("5.Sap xep danh sach nha cung cap");
+            System.out.println("6.Thoat");
             System.out.println("Vui long chon so: ");
             chucNang = sc.nextInt();
             switch(chucNang)
@@ -30,9 +31,10 @@ public class Main_QLNCC {
                 case 2 -> qlncc.capnhatNhaCC();
                 case 3 -> qlncc.xoaNhaCC();
                 case 4 -> qlncc.xemDanhSachNhaCC();
-                case 5 -> System.out.println("Thoat chuong trinh");
+                case 5 -> qlncc.sortNCC();
+                case 6 -> System.out.println("Thoat chuong trinh");
                 default -> System.out.println("Sai cu phap, vui long nhap lai");
             }
-        }while(chucNang!=5);
+        }while(chucNang!=6);
     }
 }
