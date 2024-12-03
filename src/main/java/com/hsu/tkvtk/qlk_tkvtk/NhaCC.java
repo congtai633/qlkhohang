@@ -17,6 +17,7 @@ public class NhaCC {
     private String email;
     private String nguoiLienHe;
     private String loaiHangHoa; 
+    private String sTk;
     //method
     public String getIdNhaCC()
     {
@@ -74,13 +75,22 @@ public class NhaCC {
     {
         this.loaiHangHoa=loaiHangHoa;
     }
+
+    public String getsTk() {
+        return sTk;
+    }
+
+    public void setsTk(String sTk) {
+        this.sTk = sTk;
+    }
+    
     // Constructor
       public NhaCC(){
         
     }
     public NhaCC(String idNhaCC, String tenNhaCC, String diaChi, String soDienThoai,
                  String email, String nguoiLienHe,
-                 String loaiHangHoa) {
+                 String loaiHangHoa, String sTk) {
         this.idNhaCC = idNhaCC;
         this.tenNhaCC = tenNhaCC;
         this.diaChi = diaChi;
@@ -88,10 +98,11 @@ public class NhaCC {
         this.email = email;
         this.nguoiLienHe = nguoiLienHe;
         this.loaiHangHoa = loaiHangHoa;
+        this.sTk = sTk;
     }
     @Override
     public String toString()
     {
-        return String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s",getIdNhaCC(),getTenNhaCC(),getDiaChi(),getSoDienThoai(),getEmail(),getNguoiLienHe(),getLoaiHangHoa());
+        return String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20%",getIdNhaCC(),getTenNhaCC(),getDiaChi(),getSoDienThoai(),getEmail(),getNguoiLienHe(),getLoaiHangHoa(), getsTk());
     }
 }
