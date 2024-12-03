@@ -40,9 +40,11 @@ public class QuanlyNhaCC {
         System.out.println("Nhap nguoi lien he : ");
         String nguoiLH = sc.nextLine();
         System.out.println("Nhap loai hang hoa: ");
-        String loaiHH = sc.nextLine();  
+        String loaiHH = sc.nextLine();
+        System.out.println("Nhap stk: ");
+        String stk = sc.nextLine();
         //note : xài nextline nếu toàn bộ là String, còn xài next để được cho phép nhập số hoặc khác cho các lần nhập tiếp theo.
-        NhaCC ncc = new NhaCC(id,ten,diachi,sdt,email,nguoiLH,loaiHH);
+        NhaCC ncc = new NhaCC(id,ten,diachi,sdt,email,nguoiLH,loaiHH,stk);
         //them nhaCC vao ds
         dsNhaCC.add(ncc);
         System.out.println("Them Nha Cung Cap thanh cong!");
