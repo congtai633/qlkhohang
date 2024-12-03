@@ -81,7 +81,7 @@ public class QuanlyNhaCC {
     }
     public void xoaNhaCC()
     {
-       boolean bl = false;
+       boolean bl = false;      
        NhaCC ncc = new NhaCC();
        Scanner sc = new Scanner(System.in);
        System.out.println("Nhap ID can tim: ");
@@ -107,11 +107,11 @@ public class QuanlyNhaCC {
     }
     public void xemDanhSachNhaCC()
     {
-        System.out.format("%-20s %-20s %-40s %-20s %-30s %-20s %-20s\n","Id","Ten","Dia chi","Sdt","Email","NguoiLH","LoaiHH");
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.format("%-20s %-20s %-40s %-20s %-30s %-20s %-20s %-20s\n","Id","Ten","Dia chi","Sdt","Email","NguoiLH","LoaiHH","STK");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for(NhaCC ncc : dsNhaCC)
         {
-            System.out.format("%-20s %-20s %-40s %-20s %-30s %-20s %-20s\n",ncc.getIdNhaCC(),ncc.getTenNhaCC(),ncc.getDiaChi(),ncc.getSoDienThoai(),ncc.getEmail(),ncc.getNguoiLienHe(),ncc.getLoaiHangHoa());
+            System.out.format("%-20s %-20s %-40s %-20s %-30s %-20s %-20s %-20s\n",ncc.getIdNhaCC(),ncc.getTenNhaCC(),ncc.getDiaChi(),ncc.getSoDienThoai(),ncc.getEmail(),ncc.getNguoiLienHe(),ncc.getLoaiHangHoa(),ncc.getsTk());
         }
     }
     void sortNCC() {
