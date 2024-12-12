@@ -60,7 +60,7 @@ public class QuanLySanPham {
             System.out.println("khong tim thay");
         }
         //B3
-        xemSp();
+        
 
     }
 
@@ -87,7 +87,7 @@ public class QuanLySanPham {
         } else {
             System.out.println("khong tim thay ");
         }
-        xemSp();
+        
     }
 
     public void xemSp() {
