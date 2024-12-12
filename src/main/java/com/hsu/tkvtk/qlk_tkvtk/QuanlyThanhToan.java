@@ -34,12 +34,12 @@ public class QuanlyThanhToan {
         String id = sc.nextLine();
         System.out.println("Nhap ngay thanh toan: ");
         String ngay = sc.nextLine();
-        System.out.println("Nhap so tien: ");
-        double tien = sc.nextDouble();
         System.out.println("Nhap phuong thuc thanh toan: ");
         String phuongthuc = sc.nextLine();
         System.out.println("Nhap trang thai: ");
         String trangthai = sc.nextLine();
+        System.out.println("Nhap so tien: ");
+        double tien = sc.nextDouble();
         //note : xài nextline nếu toàn bộ là String, còn xài next để được cho phép nhập số hoặc khác cho các lần nhập tiếp theo.
         ThanhToan tt = new ThanhToan(id,ngay,tien,phuongthuc,trangthai);
        
@@ -73,8 +73,6 @@ public class QuanlyThanhToan {
         }else{
             System.out.println("Khong tim thay ID thanh toan can tim");
         }
-        //in lai dsncc
-        xemDanhSachThanhToan();
     }
     public void xoaThanhToan()
      {
@@ -101,8 +99,6 @@ public class QuanlyThanhToan {
         }else{
             System.out.println("Khong tim thay ID thanh toan can tim");
         }
-        //in lai dsncc
-        xemDanhSachThanhToan();
     }
     public void xemDanhSachThanhToan()
     {
