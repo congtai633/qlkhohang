@@ -48,7 +48,7 @@ public class QuanlyNhaCC {
         //them nhaCC vao ds
         dsNhaCC.add(ncc);
         System.out.println("Them Nha Cung Cap thanh cong!");
-    }
+    }   
     public void capnhatNhaCC()
     {
         //tim id nhacc de cap nhat
@@ -76,8 +76,6 @@ public class QuanlyNhaCC {
         }else{
             System.out.println("Khong tim thay ID NCC can tim");
         }
-        //in lai dsncc
-        xemDanhSachNhaCC();
     }
     public void xoaNhaCC()
     {
@@ -103,7 +101,6 @@ public class QuanlyNhaCC {
        }else{
            System.out.println("Khong tim thay ID NCC can xoa");
        }
-       xemDanhSachNhaCC();
     }
     public void xemDanhSachNhaCC()
     {
