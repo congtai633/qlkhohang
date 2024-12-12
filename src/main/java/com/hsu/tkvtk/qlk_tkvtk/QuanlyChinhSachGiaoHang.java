@@ -32,7 +32,6 @@ public class QuanlyChinhSachGiaoHang {
         sc.nextLine();
         System.out.println("Nhap ten chinh sach: ");
         String tenChinhSach = sc.nextLine();
-            
         System.out.println("Nhap thoi gian giao hang toi da: ");
         int thoiGian = sc.nextInt();
         System.out.println("Nhap don vi thoi gian: ");
@@ -68,11 +67,10 @@ public class QuanlyChinhSachGiaoHang {
         }else{
             System.out.println("Khong tim thay ID can tim");
         }
-        xemdanhsachChinhSachGiaoHang();
     }
     public void xoaChinhSachGiaoHang()
     {
-         boolean bl = false;
+        boolean bl = false;
         ChinhSachGiaoHang csgh = new ChinhSachGiaoHang();
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ID chinh sach can tim: ");
@@ -93,7 +91,6 @@ public class QuanlyChinhSachGiaoHang {
         }else{
             System.out.println("Khong tim thay ID can tim");
         }
-        xemdanhsachChinhSachGiaoHang();
         
     }
     public void xemdanhsachChinhSachGiaoHang()
