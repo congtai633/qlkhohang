@@ -5,6 +5,8 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -13,15 +15,7 @@ import java.util.Scanner;
  */
 public class QuanLyNV {
 
-    private ArrayList<ThongTinNhanVien> danhSachNV = new ArrayList<ThongTinNhanVien>();
-
-    public ArrayList<ThongTinNhanVien> getDanhSachNV() {
-        return danhSachNV;
-    }
-
-    public void setDanhSachNV(ArrayList<ThongTinNhanVien> danhSachNV) {
-        this.danhSachNV = danhSachNV;
-    }
+    private ArrayList<NhanVien> danhSachNV = new ArrayList<NhanVien>();
 
     public void themNV() {
 
@@ -45,75 +39,66 @@ public class QuanLyNV {
         int mSnv = sc.nextInt();
         System.out.println("NAM SINH");
         int namSinh = sc.nextInt();
-
         System.out.println("LUONG THANG");
         float tongLuong = sc.nextFloat();
-
         System.out.println("MUC LUONG");
         float mucLuong = sc.nextFloat();
         System.out.println("SO NGAY CONG");
         int soNgayCong = sc.nextInt();
 
-        ThongTinNhanVien nv = new ThongTinNhanVien(mSnv, tenNv, chucVu, namSinh, gioiTinh, sDt, addr, tenNH, sTk, soNgayCong, mucLuong, tongLuong);
+        NhanVien nv = new NhanVien(mSnv, tenNv, chucVu, namSinh, gioiTinh, sDt, addr, tenNH, sTk, soNgayCong, mucLuong, tongLuong);
         danhSachNV.add(nv);
         System.out.println("THEM NHAN VIEN THANH CONG");
     }
 
-    public void capNhatNV(){
-        boolean c=false;
-        ThongTinNhanVien cn= new ThongTinNhanVien();
-        Scanner sc= new Scanner(System.in);
+    public void capNhatNV() {
+        boolean c = false;
+        NhanVien cn = new NhanVien();
+        Scanner sc = new Scanner(System.in);
         System.out.println("MA SO NHAN VIEN CAN TIM");
-        int mSnv= sc.nextInt();
-        for(ThongTinNhanVien thongTinNhanVien : danhSachNV){
-            if(thongTinNhanVien.getMSnv()==mSnv){
+        int mSnv = sc.nextInt();
+        for (NhanVien thongTinNhanVien : danhSachNV) {
+            if (thongTinNhanVien.getMSnv() == mSnv) {
                 cn = thongTinNhanVien;
-                c=true;
+                c = true;
                 break;
             }
         }
-        if(c==true){
+        if (c == true) {
             System.out.println("nhap ten can sua: ");
-            String tenNv=sc.nextLine();
-            cn.setTenNH(tenNv);
-        }else
-        {
+            String tenNv = sc.next();
+            cn.setTenVn(tenNv); //khong biet ve
+        } else {
             System.out.println("khong tim thay!");
         }
-        xemDanhSachNV();
-        
-        
-    }
-    public void xoaNV(){
-         boolean c=false;
-        ThongTinNhanVien xnv= new ThongTinNhanVien();
-        Scanner sc= new Scanner(System.in);
-        System.out.println("MA SO NHAN VIEN CAN TIM");
-        int mSnv= sc.nextInt();
-        for(ThongTinNhanVien thongTinNhanVien : danhSachNV){
-            if(thongTinNhanVien.getMSnv()==mSnv){
-                xnv = thongTinNhanVien;
-                c=true;
-                break;
-            }
-        }
-        if(c==true){
-            danhSachNV.remove(xnv);
-        }else
-        {
-            System.out.println("khong tim thay!");
-        }
-        
-        
-        xemDanhSachNV();
-        
+
     }
 
-    public void xemDanhSachNV() {
+    public void xoaNV() {
+        boolean c = false;
+        NhanVien xnv = new NhanVien();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("MA SO NHAN VIEN CAN TIM");
+        int mSnv = sc.nextInt();
+        for (NhanVien thongTinNhanVien : danhSachNV) {
+            if (thongTinNhanVien.getMSnv() == mSnv) {
+                xnv = thongTinNhanVien;
+                c = true;
+                break;
+            }
+        }
+        if (c == true) {
+            danhSachNV.remove(xnv);
+        } else {
+            System.out.println("khong tim thay!");
+        }
+
+    }
+
+    public void xemDanhSach() {
         System.out.format("%-20s %-20s %-40s %-20s %-30s %-20s %-20s %-20s %-20s %-20s %-20s %-20s \n",
-                 "ma so nhan vien", "ten nhan vien", "chuc vu", "nam sinh",
-                 "gioi tinh", "SDT", "dia chi", "ten Ngan Hang", "STK", "so ngay cong", "muc luong", "tong luong");
-        for (ThongTinNhanVien ttnv : danhSachNV) {
+                 "ma so nhan vien", "ten nhan vien", "chuc vu", "nam sinh", "gioi tinh", "SDT", "dia chi", "ten Ngan Hang", "STK", "so ngay cong", "muc luong", "tong luong");
+        for (NhanVien ttnv : danhSachNV) {
             System.out.format("%-20d %-20s %-40s %-20s %-30s %-20s %-20s %-20s %-20s %-20d %-20f %-20f \n",
                      ttnv.getMSnv(),
                      ttnv.getTenVn(),
@@ -131,4 +116,19 @@ public class QuanLyNV {
         }
     }
 
+    void sortNV() {
+        Comparator<NhanVien> compObj = new Comparator<NhanVien>() {
+            @Override
+            public int compare(NhanVien h1, NhanVien h2) {
+                if (h1.getMSnv() > h2.getMSnv()) {
+                    return 1;
+                } else if (h1.getMSnv() == h2.getMSnv()) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        };
+        Collections.sort(danhSachNV, compObj);
+    }
 }

@@ -11,11 +11,10 @@ import java.util.Scanner;
  * @author Admin
  */
 public class SanPham {
-
-    private String idSp;
-    private String tenSp;
-    private float giaSp;
-    private int soLuong;
+    String idSp;
+     String tenSp;
+     float giaSp;
+     int soLuong;
 
     public SanPham() {
     }
@@ -58,26 +57,30 @@ public class SanPham {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
-
-    public void nhaphang() {
+     public void input(){
         System.out.println("nhap ten hang:");
-        Scanner nhapten = new Scanner(System.in);
-        tenSp = nhapten.nextLine();
+        Scanner nhapten=new Scanner(System.in);
+        tenSp= nhapten.nextLine();
         System.out.println("nhap ma hang:");
-        Scanner nhapma = new Scanner(System.in);
-        idSp = nhapma.nextLine();
-
+        Scanner nhapma=new Scanner(System.in);
+        idSp= nhapma.nextLine();
+        
         System.out.println("nhap gia hang:");
-        Scanner nhapgia = new Scanner(System.in);
-        giaSp = nhapgia.nextFloat();
-        System.out.println("nhap so luong :");
-        Scanner sl = new Scanner(System.in);
-        soLuong = sl.nextInt();
+        Scanner nhapgia=new Scanner(System.in);
+        giaSp= nhapgia.nextFloat();
+         System.out.println("nhap so luong :");
+         Scanner sl=new Scanner(System.in);
+         soLuong= sl.nextInt();
+        
+    }
+     public  void output(){
+                System.out.println("ten hang hoa: "+tenSp+"\n ma hang hoa: "+idSp+"\n giaHH "+giaSp+"so luong:"+soLuong);
 
     }
-
-    public void xuathang() {
-        System.out.println("ten hang hoa: " + tenSp + "\n ma hang hoa: " + idSp + "\n giaHH " + giaSp + "so luong:" + soLuong);
-
+    @Override 
+    public String toString(){
+        String s= String.format("%-20s%-20s%-20.2f%-20d",tenSp,idSp,giaSp,soLuong);
+        return s;
     }
+    
 }

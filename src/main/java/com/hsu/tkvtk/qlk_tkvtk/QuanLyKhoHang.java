@@ -5,6 +5,8 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -68,8 +70,6 @@ public class QuanLyKhoHang {
         } else {
             System.out.println("khong tim thay:");
         }
-        xemdsKhoHang();
-
     }
 
     public void xoaKhoHang() {
@@ -91,7 +91,6 @@ public class QuanLyKhoHang {
         } else {
             System.out.println("khong tim thay:");
         }
-        xemdsKhoHang();
     }
 
     public void xemdsKhoHang() {
@@ -102,4 +101,20 @@ public class QuanLyKhoHang {
 
     }
 
+    public void sortKhoHang() {
+        Comparator<KhoHang> compObj = new Comparator<KhoHang>() {
+            @Override
+            public int compare(KhoHang kh1, KhoHang kh2) {
+                if (kh1.getIdKhoHang().compareTo(kh2.getIdKhoHang()) > 0) {
+                    return 1;
+                } else if (kh1.getIdKhoHang().compareTo(kh2.getIdKhoHang()) == 0) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        };
+
+        Collections.sort(dsKhoHang, compObj);
+    }
 }

@@ -5,6 +5,8 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -13,7 +15,7 @@ import java.util.Scanner;
  */
 public class QuanLyLoHang {
 
-    private ArrayList<Lohang> dsLh = new ArrayList<>();
+    private ArrayList<Lohang> dsLh = new ArrayList();
 
     public ArrayList<Lohang> getDsLh() {
         return dsLh;
@@ -38,6 +40,7 @@ public class QuanLyLoHang {
         Lohang Lh = new Lohang(idLH, idSP, soluong, nsx, hsd);
         dsLh.add(Lh);
         System.out.println("Them lo hang thanh cong !");
+
     }
 
     public void xoaLh() {
@@ -58,7 +61,6 @@ public class QuanLyLoHang {
         } else {
             System.out.println("khong tim thay");
         }
-        xemLh();
 
     }
 
@@ -67,7 +69,7 @@ public class QuanLyLoHang {
         boolean c = false;
         Lohang Lh = new Lohang();
         Scanner sc = new Scanner(System.in);
-        System.out.println("nhap Id can xoa");
+        System.out.println("nhap Id can sua");
         String idLh = sc.nextLine();
         for (Lohang Lohang : dsLh) {
             if (Lohang.getIdLoHang().equals(idLh)) {
@@ -78,20 +80,33 @@ public class QuanLyLoHang {
         }
         // B2 cap nhat 
         if (c == true) {
-            System.out.println("nhap ten can sua");
-            int soluong =sc.nextInt();
+            System.out.println("nhap so luong can sua: ");
+            int soluong = sc.nextInt();
             Lh.setSoLuong(soluong);
+
         } else {
             System.out.println("khong tim thay ");
         }
-        xemLh();
 
     }
 
     public void xemLh() {
-        System.out.format("%-20s%-20s%-20s%-20s%-20s\n", "Lh.idLoHang", "Lh.idSanPham", "Lh.soLuong", "Lh.ngaySanXuat", "Lh.hanSuDung");
+        System.out.format("%-20s%-20s%-20s%-20s%-20s\n", "Lh.idLoHang", "Lh.ngaySanXuat", "Lh.hanSuDung", "Lh.idSanPham", "Lh.soLuong");
         for (Lohang Lh : dsLh) {
-            System.out.format("%-20s%-20s%-20d%-20s%-20s\n", Lh.getIdLoHang(), Lh.getIdSanPham(), Lh.getSoLuong(), Lh.getNgaySanXuat(), Lh.getHanSudung());
+            System.out.format("%-20s%-20s%-20s%-20s%-20d\n", Lh.idLoHang, Lh.ngaySanXuat, Lh.hanSuDung, Lh.idSanPham, Lh.soLuong);
         }
+    }
+
+    void sortByidLh() {
+        Comparator<Lohang> compObj = new Comparator<Lohang>(){
+            @Override
+            public int compare(Lohang Lh1, Lohang Lh2) {
+                return Lh1.getIdLoHang().compareTo(Lh2.getIdLoHang());
+
+            }
+
+        };
+        Collections.sort(dsLh, compObj);
+
     }
 }

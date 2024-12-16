@@ -107,7 +107,7 @@ public class QuanlyChinhSachGiaoHang {
             @Override
             public int compare(ChinhSachGiaoHang h1, ChinhSachGiaoHang h2) {
                 if (h1.getIdChinhSach() > h2.getIdChinhSach()) {
-                    return 1;
+                    return 0;
                 } else if (h1.getIdChinhSach()== h2.getIdChinhSach()) {
                     return 0;
                 } else {

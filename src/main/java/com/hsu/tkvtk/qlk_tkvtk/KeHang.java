@@ -88,4 +88,20 @@ public class KeHang {
     public void setSucChua(double sucChua) {
         this.sucChua = sucChua;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%-20s %-20s %-20s %-20s %-20s %-20d %-20d %-20f",
+                getIdKe(),
+                getViTriKe(),
+                getLoaiKe(),
+                getLoaiHang(),
+                getMaHang(),
+                getSoTang(),
+                getSoLuong(),
+                getSucChua()
+        );
+    }
+
 }

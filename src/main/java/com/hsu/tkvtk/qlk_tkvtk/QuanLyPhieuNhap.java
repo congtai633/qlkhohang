@@ -1,10 +1,13 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class QuanLyPhieuNhap {
-    private ArrayList<PhieuNhap> dsPhieuNhap = new ArrayList<>();
+
+    private ArrayList<PhieuNhap> dsPhieuNhap = new ArrayList<PhieuNhap>();
 
     public ArrayList<PhieuNhap> getDsPhieuNhap() {
         return dsPhieuNhap;
@@ -13,7 +16,8 @@ public class QuanLyPhieuNhap {
     public void setDsPhieuNhap(ArrayList<PhieuNhap> dsPhieuNhap) {
         this.dsPhieuNhap = dsPhieuNhap;
     }
-
+    
+    // Phương thức thêm phiếu nhập
     public void themPhieuNhap() {
         PhieuNhap pn = new PhieuNhap();
         Scanner sc = new Scanner(System.in);
@@ -37,7 +41,8 @@ public class QuanLyPhieuNhap {
         System.out.println("Them phieu nhap thanh cong!");
     }
 
-   public void capNhatPhieuNhap(String idPhieuNhap) {
+    // Phương thức cập nhật phiếu nhập
+    public void capNhatPhieuNhap(String idPhieuNhap) {
         Scanner sc = new Scanner(System.in);
         boolean found = false;
         for (PhieuNhap pn : dsPhieuNhap) {
@@ -64,6 +69,23 @@ public class QuanLyPhieuNhap {
         }
     }
 
+    // Phương thức xóa phiếu nhập
+    public void xoaPhieuNhap(String idPhieuNhap) {
+        boolean found = false;
+        for (PhieuNhap pn : dsPhieuNhap) {
+            if (pn.getIdPhieuNhap().equals(idPhieuNhap)) {
+                dsPhieuNhap.remove(pn);
+                System.out.println("Xoa phieu nhap thanh cong!");
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay phieu nhap voi ID: " + idPhieuNhap);
+        }
+    }
+
+    // Phương thức hiển thị danh sách phiếu nhập
     public void xemDanhSachPhieuNhap() {
         System.out.format("%-20s %-20s %-20s %-20s %-20s\n",
                 "ID Phieu Nhap", "Ngay Nhap", "ID Nha CC", "Trang Thai", "Tong Tien");
@@ -74,5 +96,17 @@ public class QuanLyPhieuNhap {
                     pn.getIdPhieuNhap(), pn.getNgayNhap(), pn.getIdNhaCC(), pn.getTrangThai(),
                     pn.getTongTien());
         }
+    }
+
+    // Phương thức sắp xếp danh sách phiếu nhập theo idPhieuNhap
+    public void sortByIdPhieuNhap() {
+        Comparator<PhieuNhap> compObj = new Comparator<PhieuNhap>() {
+            @Override
+            public int compare(PhieuNhap o1, PhieuNhap o2) {
+                return o1.getIdPhieuNhap().compareTo(o2.getIdPhieuNhap());
+            }
+        };
+        Collections.sort(dsPhieuNhap, compObj);
+        System.out.println("Danh sách phiếu nhập đã được sắp xếp theo ID phiếu nhập.");
     }
 }

@@ -20,7 +20,7 @@ public class QuanlyThanhToan {
         return dsThanhToan;
     }
 
-    public void setDsThanhToan(ArrayList<ThanhToan> dsThanhToan) {
+        public void setDsThanhToan(ArrayList<ThanhToan> dsThanhToan) {
         this.dsThanhToan = dsThanhToan;
     }
 

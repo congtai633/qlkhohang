@@ -155,7 +155,7 @@ public class HoaDon {
 
     @Override
     public String toString() {
-        return String.format("%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30d%-30d%-30d%-30f\n", getTenDoanhNghiep(), getDiaChiDoanhNghiep(), getMaSoThue(), getsDT(), getTenKhachHang(), getDiaChiKhachHang(), getMaSoThueKhachHang(), getsDTKhachHang(), getTenSanPham(), getMaSanPham(), getDonViTinh(), getSoLuong(), getDonGia(), getThanhTien());
+        return String.format("%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30s%-30d%-30d%-30d%-30f\n", getTenDoanhNghiep(),getDiaChiDoanhNghiep(),getMaSoThue(),getsDT(),getTenKhachHang(),getDiaChiKhachHang(),getMaSoThueKhachHang(),getsDTKhachHang(),getTenSanPham(),getMaSanPham(),getDonViTinh(),getSoLuong(),getDonGia(),getThanhTien());
     }
 
 }

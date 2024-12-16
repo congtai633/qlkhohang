@@ -16,17 +16,6 @@ public class KhoHang {
     private int sucChua;
     private String trangThai;
 
-    public KhoHang(String idKhoHang, String tenKho, String diaChi, int sucChua, String trangThai) {
-        this.idKhoHang = idKhoHang;
-        this.tenKho = tenKho;
-        this.diaChi = diaChi;
-        this.sucChua = sucChua;
-        this.trangThai = trangThai;
-    }
-
-    public KhoHang() {
-    }
-
     public String getIdKhoHang() {
         return idKhoHang;
     }
@@ -67,9 +56,21 @@ public class KhoHang {
         this.trangThai = trangThai;
     }
 
+    public KhoHang(String idKhoHang, String tenKho, String diaChi, int sucChua, String trangThai) {
+        this.idKhoHang = idKhoHang;
+        this.tenKho = tenKho;
+        this.diaChi = diaChi;
+        this.sucChua = sucChua;
+        this.trangThai = trangThai;
+    }
+
+    public KhoHang() {
+    }
+
     @Override
     public String toString() {
         return String.format("%-20s%-20s%-20s%-20d%-20s\n",
                 getIdKhoHang(), getTenKho(), getDiaChi(), getSucChua(), getTrangThai());
     }
+
 }

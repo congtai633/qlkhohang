@@ -5,6 +5,8 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -14,14 +16,6 @@ import java.util.Scanner;
 public class QuanLyHoaDon {
 
     private ArrayList<HoaDon> dsHoaDon = new ArrayList<HoaDon>();
-
-    public ArrayList<HoaDon> getDsHoaDon() {
-        return dsHoaDon;
-    }
-
-    public void setDsHoaDon(ArrayList<HoaDon> dsHoaDon) {
-        this.dsHoaDon = dsHoaDon;
-    }
 
     public void themHoaDon() {
         HoaDon hd = new HoaDon();
@@ -92,9 +86,8 @@ public class QuanLyHoaDon {
             String tenDN = sc.nextLine();
             hd.setTenDoanhNghiep(tenDN);
         } else {
-            System.out.println("khong tim thay:");
+            System.out.println("khong tim thay");
         }
-        xemdsHoaDon();
 
     }
 
@@ -115,9 +108,8 @@ public class QuanLyHoaDon {
         if (c == true) {
             dsHoaDon.remove(hd);
         } else {
-            System.out.println("khong tim thay:");
+            System.out.println("khong tim thay");
         }
-        xemdsHoaDon();
     }
 
     public void xemdsHoaDon() {
@@ -127,4 +119,21 @@ public class QuanLyHoaDon {
 
         }
     }
+    public void sortHoaDon() {
+        Comparator<HoaDon> compObj = new Comparator<HoaDon>() {
+            @Override
+            public int compare(HoaDon hd1, HoaDon hd2) {
+                if (hd1.getMaSanPham().compareTo(hd2.getMaSanPham()) > 0) {
+                    return 1;
+                } else if (hd1.getMaSanPham().compareTo(hd2.getMaSanPham()) == 0) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        };
+
+        Collections.sort(dsHoaDon, compObj);
+    }
+
 }

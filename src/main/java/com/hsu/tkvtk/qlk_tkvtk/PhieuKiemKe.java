@@ -12,9 +12,9 @@ package com.hsu.tkvtk.qlk_tkvtk;
  */
 public class PhieuKiemKe {
          
-    private String nhanVienKiemKe,ketQua,ghiChu,ngayKiemKe;
+    private String nhanVienKiemKe,ketQua,ghiChu;
     private int idPhieuKiemKe;
-
+    private int ngayKiemKe;
      
     
     public String getNhanVienKiemKe(){
@@ -29,7 +29,7 @@ public class PhieuKiemKe {
     public int getIdPhieuKiemKe(){
         return idPhieuKiemKe;
     }
-    public String getNgayKiemKe(){
+    public int getNgayKiemKe(){
         return ngayKiemKe;
     }
     
@@ -45,11 +45,11 @@ public class PhieuKiemKe {
     public void setIdPhieuKiemKe(int IdPhieuKiemKe){
         this.idPhieuKiemKe=IdPhieuKiemKe;
     }
-    public void getNgayKiemKe(String NgayKiemKe){
+    public void getNgayKiemKe(int NgayKiemKe){
         this.ngayKiemKe=NgayKiemKe;
     }
     
-    public PhieuKiemKe(String nhanVienKiemKe, int idPhieuKiemKe, String ngayKiemKe, String ketQua, String ghiChu){
+    public PhieuKiemKe(String nhanVienKiemKe, int idPhieuKiemKe, int ngayKiemKe, String ketQua, String ghiChu){
         this.nhanVienKiemKe=nhanVienKiemKe;
         this.idPhieuKiemKe=idPhieuKiemKe;
         this.ngayKiemKe=ngayKiemKe;
@@ -59,5 +59,9 @@ public class PhieuKiemKe {
     
     public PhieuKiemKe(){
         
+    }
+    @Override
+    public String toString(){
+        return String.format("%-20s %-20d %-20d %-20s %-20s",nhanVienKiemKe,idPhieuKiemKe,ngayKiemKe,ketQua,ghiChu) ;
     }
 }

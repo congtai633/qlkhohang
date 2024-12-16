@@ -1,11 +1,13 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class QuanLyPhieuXuat {
 
-    private ArrayList<PhieuXuat> dsPhieuXuat = new ArrayList<>();
+    private ArrayList<PhieuXuat> dsPhieuXuat = new ArrayList<PhieuXuat>();
 
     public ArrayList<PhieuXuat> getDsPhieuXuat() {
         return dsPhieuXuat;
@@ -14,7 +16,8 @@ public class QuanLyPhieuXuat {
     public void setDsPhieuXuat(ArrayList<PhieuXuat> dsPhieuXuat) {
         this.dsPhieuXuat = dsPhieuXuat;
     }
-
+    
+    // Phương thức thêm phiếu xuất
     public void themPhieuXuat() {
         PhieuXuat px = new PhieuXuat();
         Scanner sc = new Scanner(System.in);
@@ -32,12 +35,14 @@ public class QuanLyPhieuXuat {
         px.setTongTien(sc.nextDouble());
 
         System.out.print("Nhap trang thai: ");
+        sc.nextLine();  // Consume newline left-over
         px.setTrangThai(sc.nextLine());
 
         dsPhieuXuat.add(px);
         System.out.println("Them phieu xuat thanh cong !");
     }
 
+    // Phương thức xóa phiếu xuất
     public void xoaPhieuXuat(String idPhieuXuat) {
         boolean found = false;
         for (PhieuXuat px : dsPhieuXuat) {
@@ -53,6 +58,7 @@ public class QuanLyPhieuXuat {
         }
     }
 
+    // Phương thức cập nhật phiếu xuất
     public void capNhatPhieuXuat(String idPhieuXuat) {
         Scanner sc = new Scanner(System.in);
         boolean found = false;
@@ -81,6 +87,7 @@ public class QuanLyPhieuXuat {
         }
     }
 
+    // Phương thức hiển thị danh sách phiếu xuất
     public void xemDanhSachPhieuXuat() {
         System.out.format("%-20s %-20s %-20s %-20s %-20s\n",
                 "ID Phieu Xuat", "Ngay Xuat", "ID Khach Hang", "Tong Tien", "Trang Thai");
@@ -91,5 +98,17 @@ public class QuanLyPhieuXuat {
                     px.getIdPhieuXuat(), px.getNgayXuat(), px.getIdKhachHang(),
                     px.getTongTien(), px.getTrangThai());
         }
+    }
+
+    // Phương thức sắp xếp danh sách phiếu xuất theo idPhieuXuat
+    public void sortByIdPhieuXuat() {
+        Comparator<PhieuXuat> compObj = new Comparator<PhieuXuat>() {
+            @Override
+            public int compare(PhieuXuat o1, PhieuXuat o2) {
+                return o1.getIdPhieuXuat().compareTo(o2.getIdPhieuXuat());
+            }
+        };
+        Collections.sort(dsPhieuXuat, compObj);
+        System.out.println("Danh sách phiếu xuất đã được sắp xếp theo ID phiếu xuất.");
     }
 }

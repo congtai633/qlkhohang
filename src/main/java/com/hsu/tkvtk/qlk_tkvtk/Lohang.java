@@ -11,11 +11,11 @@ import java.util.Scanner;
  * @author Admin
  */
 public class Lohang {
-    private String idLoHang;
-    private String idSanPham;
-    private int soLuong;
-    private String ngaySanXuat;
-    private String hanSuDung;
+    String idLoHang;
+    String idSanPham;
+    int soLuong;
+    String ngaySanXuat;
+    String hanSuDung;
 
     public Lohang() {
     }
@@ -87,6 +87,11 @@ public class Lohang {
     }
     public void xuatLohang(){
         System.out.println("ID lo hang:"+idLoHang+"NSX:"+ngaySanXuat+"HSD"+hanSuDung+"ID san pham"+idSanPham+"so luong:"+soLuong);
+    }
+    @Override
+    public String toString(){
+        String s= String.format("%-20s%-20s%-20d%-20s%-20s",idLoHang,idSanPham,soLuong,ngaySanXuat,hanSuDung);
+        return s;
     }
     
 }

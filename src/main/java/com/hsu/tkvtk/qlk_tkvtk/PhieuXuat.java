@@ -1,7 +1,6 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 public class PhieuXuat {
-
     private String idPhieuXuat;
     private String ngayXuat;
     private String idKhachHang;
@@ -58,4 +57,17 @@ public class PhieuXuat {
     public String getTrangThai() {
         return trangThai;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "%-20s %-20s %-20s %-20f %-20s",
+            getIdPhieuXuat(),
+            getNgayXuat(),
+            getIdKhachHang(),
+            getTongTien(),
+            getTrangThai()
+        );
+    }
 }
+

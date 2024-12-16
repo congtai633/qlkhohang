@@ -5,6 +5,9 @@
 package com.hsu.tkvtk.qlk_tkvtk;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import java.util.Scanner;
 
 /**
@@ -13,7 +16,7 @@ import java.util.Scanner;
  */
 public class QuanLySanPham {
 
-    private ArrayList<SanPham> dsSp = new ArrayList<SanPham>();
+    private ArrayList<SanPham> dsSp = new ArrayList();
 
     public ArrayList<SanPham> getDsSp() {
         return dsSp;
@@ -22,7 +25,7 @@ public class QuanLySanPham {
     public void setDsSp(ArrayList<SanPham> dsSp) {
         this.dsSp = dsSp;
     }
-
+    
     public void themSp() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ten Sp:");
@@ -36,6 +39,7 @@ public class QuanLySanPham {
         SanPham Sp = new SanPham(id, ten, gia, soluong);
         dsSp.add(Sp);
         System.out.println("Them san pham thanh cong !");
+
     }
 
     public void xoaSp() {
@@ -53,15 +57,12 @@ public class QuanLySanPham {
 
             }
         }
-        //B2 xoa
+        //B2 Cap Nhat
         if (c == true) {
             dsSp.remove(Sp);
         } else {
             System.out.println("khong tim thay");
         }
-        //B3
-        
-
     }
 
     public void capnhatSp() {
@@ -69,14 +70,16 @@ public class QuanLySanPham {
         boolean c = false;
         SanPham Sp = new SanPham();
         Scanner sc = new Scanner(System.in);
-        System.out.println("nhap ID can xoa :");
+        System.out.println("nhap id can tim ");
+
         String idSp = sc.nextLine();
+
         for (SanPham SanPham : dsSp) {
+
             if (SanPham.getIdSp().equals(idSp)) {
                 Sp = SanPham;
                 c = true;
                 break;
-
             }
         }
         // B2 cap nhat 
@@ -87,14 +90,25 @@ public class QuanLySanPham {
         } else {
             System.out.println("khong tim thay ");
         }
-        
     }
 
     public void xemSp() {
-        System.out.format("%-20s%-20s%-20s%-20s\n", "ID", "Ten SP", "Gia", "So luong");
+        System.out.format("%-20s%-20s%-20s%-20s\n", "giaSp", "tenSp", "soLuong", "idSp");
         for (SanPham Sp : dsSp) {
-            System.out.format("%-20s%-20s%-20f%-20d\n", Sp.getIdSp(), Sp.getTenSp(), Sp.getGiaSp(), Sp.getSoLuong());
+            System.out.format("%-20f%-20s%-20s%-20s\n", Sp.giaSp, Sp.tenSp, Sp.soLuong, Sp.idSp);
         }
     }
 
+    void sortByidSp() {
+        Comparator<SanPham> compObj = new Comparator<SanPham>() {
+            @Override
+            public int compare(SanPham sp1, SanPham sp2) {
+                return sp1.getIdSp().compareTo(sp2.getIdSp());
+
+            }
+
+        };
+        Collections.sort(dsSp, compObj);
+
+    }
 }

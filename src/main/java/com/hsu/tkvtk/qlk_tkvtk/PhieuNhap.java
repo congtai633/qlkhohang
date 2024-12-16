@@ -58,4 +58,16 @@ public class PhieuNhap {
     public double getTongTien() {
         return tongTien;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "%-20s %-20s %-20s %-20s %-20f",
+            getIdPhieuNhap(),
+            getNgayNhap(),
+            getIdNhaCC(),
+            getTrangThai(),
+            getTongTien()
+        );
+    }
 }
